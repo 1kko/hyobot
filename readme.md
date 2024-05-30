@@ -13,6 +13,8 @@
 - 인터넷 연결
 - 카카오워크 봇 API Key
 
+아래 명령은 모두 WSL 환경안에서 실행합니다. Ubuntu 22.04 이상을 기준으로 작성되었습니다.
+
 ### 1. 레포지토리 클론
 ```bash
 git clone https://github.com/1kko/hyobot.git
