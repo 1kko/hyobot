@@ -8,14 +8,14 @@
 ## 설치
 
 ### 0. 설치전 준비사항
-- Docker
+- [Docker](https://docs.docker.com/get-docker/)
 - amd64 또는 x86
 - 인터넷 연결
 - 카카오워크 봇 API Key
 
 ### 1. 레포지토리 클론
 ```bash
-git clone git@github.com:1kko/hyobot.git
+git clone https://github.com/1kko/hyobot.git
 ```
 
 ### 2. `.env` 파일을 `hyobot` 디렉토리에 생성하고 아래에 카카오워크 봇 API 입력
