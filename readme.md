@@ -23,7 +23,12 @@ git clone https://github.com/1kko/hyobot.git
 ### 2. `.env` 파일을 `hyobot` 디렉토리에 생성하고 아래에 카카오워크 봇 API 입력
 주의: 따움표나 스페이스를 제외하고 입력해주세요.
 ```bash
+$ cat > .env << EOF
 APP_KEY=카카오.봇키1234abcd0000...
+EOF
+$ cat .env
+APP_KEY=카카오.봇키1234abcd0000...
+$
 ```
 
 ### 3. 도커 빌드
