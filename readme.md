@@ -1,4 +1,5 @@
 
+
 # Hyobot
 
 Redmine에서 새로운 일감이 생성될 경우 할당된 사용자에게  카카오Work로 알림을 보낼 수 있도록 하는 미들웨어입니다.
@@ -19,13 +20,11 @@ https://github.com/suer/redmine_webhook
 
 # 사용되는 테크놀로지
 대충 아래의 테크놀로지를 기반으로 Hyobot이 실행됩니다.
-- Docker
-- WSL
-- Git
-- Python
-- FastAPI
-- Rest API
-- HTTP
+- [Docker](https://www.docker.com/)
+- [WSL](https://learn.microsoft.com/ko-kr/windows/wsl/install) 
+- [Git](https://git-scm.com/)
+- [Python](https://www.python.org/)
+- [FastAPI](https://fastapi.tiangolo.com/)
 
 # 설치
 본 설치 가이드는 리눅스는 무조건 어렵고 윈도우만 사용할 줄 아는 삽돌이를 위해 아무것도 몰라도 완전히 처음부터 시작할 수 있도록 작성되었습니다.  최대한 쉬운 단어를 사용하고 단축어가 있다면 풀어쓰려고 노력하였으나 제 노력이 쓸모없을지도 모릅니다.
@@ -108,22 +107,21 @@ git clone https://github.com/1kko/hyobot.git
 `.env` 파일을 `hyobot` 디렉토리에 생성하고 아래에 카카오워크 봇 API 입력하는 단계입니다.
 주의: 따움표나 스페이스를 제외하고 입력해주세요.
 
-### 3-1. 복사한 폴더로 이동합니다.
+1. 복사한 폴더로 이동합니다.
     ```bash
     cd hyobot
     ```
 
-### 3-2. `.env` 파일을 생성합니다.
+2. `.env` 파일을 생성합니다.
     ```bash
     cat > .env << EOF
     APP_KEY=카카오.봇키1234abcd0000...
     EOF
     ```
-### 3-3. `.env`파일의 내용을 확인합니다.
-아래 내용이 생성했을 때 입력값과 같으면 정상적으로 키가 입력된 것입니다.
+3. `.env`파일의 내용을 확인합니다.
+아래 내용이 생성했을 때 APP_KEY의 내용이 위의 입력값과 같으면 정상적으로 키가 입력된 것입니다. 참고로 `EOF`는 안보이는것이 정상입니다.
     ```bash
     cat .env
-    # APP_KEY=카카오.봇키1234abcd0000...
     ```
 
 ## 4. 도커 빌드 및 서비스 실행
