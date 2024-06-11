@@ -41,6 +41,7 @@ graph TD
 - [Git](https://git-scm.com/)
 - [Python](https://www.python.org/)
 - [FastAPI](https://fastapi.tiangolo.com/)
+- [Requests](https://requests.readthedocs.io/)
 
 # 설치
 본 설치 가이드는 리눅스는 무조건 어렵고 윈도우만 사용할 줄 아는 친구를 위해 아무것도 몰라도 완전히 처음부터 시작할 수 있도록 작성되었습니다. 최대한 쉬운 단어를 사용하고 단축어가 있다면 풀어쓰려고 노력하였으나 제 노력이 쓸모없을지도 모릅니다.
