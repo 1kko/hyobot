@@ -1,10 +1,8 @@
 """FastAPI Server which receives as POST and sends to kakaowork API"""
 
-import json
 from typing import Any
 
-from fastapi import Body, FastAPI, HTTPException, Request, Response
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Body, FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
