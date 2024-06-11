@@ -8,6 +8,22 @@ Redmine에서 새로운 일감이 생성될 경우 할당된 사용자에게  �
 레드마인에 다음의 플러그인을 설치하고 webhook url에 서버 url을 넣어주면 카카오톡으로 알림을 받을 수 있습니다.
 https://github.com/suer/redmine_webhook
 
+# 동작방식
+```mermaid
+graph TD
+  사용자 -->|이슈 생성 및 업데이트| Redmine
+  Redmine -->|POST 이슈 정보 전송| Hyobot
+  Hyobot --> |POST 메세지 전송| KakaoWork
+  KakaoWork --> |알림 노티피케이션 전송| 카카오알림
+
+  subgraph WSL
+    Docker
+  end
+
+  subgraph Docker
+    Hyobot
+  end
+```
 
 # 기능
 포멧에 맞게 메시지를 보내면, 해당 메시지를 카카오톡으로 전송합니다.
@@ -137,6 +153,29 @@ make && make serve
 ## 5. API 문서 확인
 웹브라우저를 이용해서 `http://127.0.0.1:8000/docs` 접속이 되면 모든 것이 정상적으로 동작하는 것을 확인할 수 있습니다.
 
+
+## 6. 새로운 버전 업데이트 방법
+업데이트가 되면 다음 명령어를 실행하여 최신 버전을 받을 수 있습니다.
+
+1. 도커 데스크톱에서 현재 실행중인 hyobot을 멈춥니다.
+
+2. 시작 프로그램에서 `Ubuntu`를 실행하여 우분투 WSL 터미널을 엽니다.
+
+3. 아래 명령어를 입력합니다. 
+    ```bash
+    cd hyobot
+    git pull
+    make && make serve
+    ```
+
+
+## 7. 문제 해결
+만약 업데이트 중 문제가 발생했다면 아래와 같이 `hyobot` 디렉토리를 삭제하고 [2. 소스코드 복사하기](#2-소스코드-복사하기) 부터 다시 수행하시면 됩니다.
+```bash
+rm -rf ~/hyobot
+```
+
+
 # Redmine 연동
 1. 아래 홈페이지를 참조하여 레드마인에 플러그인을 설치하세요
 https://github.com/suer/redmine_webhook
@@ -147,17 +186,6 @@ https://github.com/suer/redmine_webhook
     ```
 여기서 `127.0.0.1`는 redmine과 hyobot이 동일한 서버에 설치되었을 경우이며, 다른 서버에 설치하였을 경우 해당 서버의 IP로 설정해야합니다.
 
-
-## 6. 새로운 버전 업데이트 방법
-1. 도커 데스크톱에서 현재 실행중인 hyobot을 멈춥니다.
-
-2. 시작 프로그램에서 `Ubuntu`를 실행하여 우분투 WSL 터미널을 엽니다.
-
-3. 아래 명령어를 입력합니다. 
-```bash
-cd hyobot
-make && make serve
-```
 
 # 기타 주의사항
 본 서비스는 모든 요청을 받을 수 있도록 오픈되어 있으므로 사용시 각별한 주의가 필요합니다. redmine 및 본 미들웨어 또한 인트라넷에서 사용하는 것을 가정하였으므로 보안에 관련된 조치는 아무것도 없습니다.
